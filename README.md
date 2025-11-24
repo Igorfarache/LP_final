@@ -15,47 +15,89 @@ Editar e consultar informações de forma simples
 Persistir dados localmente através de arquivos .txt
 
  Estrutura do Projeto
+ 
 SGTP/
+
 │
+
 ├── README.md                    # Documentação do projeto
+
 ├── Makefile                     # Arquivo para compilação automatizada
+
 │
+
 ├── include/                     # Headers (.h)
+
 │   ├── Exercicio.h
+
 │   ├── Cardio.h
+
 │   ├── Forca.h
+
 │   ├── Ficha.h
+
 │   ├── Historico.h
+
 │   ├── Sistema.h
+
 │   └── Utils.h 
+
 │
+
 ├── src/                         # Implementações (.cpp)
+
 │   ├── Exercicio.cpp
+
 │   ├── Cardio.cpp
+
 │   ├── Forca.cpp
+
 │   ├── Ficha.cpp
+
 │   ├── Historico.cpp
+
 │   ├── Sistema.cpp
-│   └── main.cpp               
-│                   
+
+│   └── main.cpp    
+
+│            
+
 │
+
 ├── data/                        # Persistência dos dados
+
 │   ├── exercicios.txt           # Lista de exercícios cadastrados
+
 │   ├── fichas.txt               # Lista de fichas de treino
+
 │   ├── historico.txt            # Registro do histórico de treinos
+
 │   
+
 │
+
 ├── build/                       # Arquivos de compilação
+
 │   ├── utils.o
+
 │   ├── menu.o
+
 │   ├── exercicio.o
+
 │   ├── ficha.o
+
 │   ├── historico.o
+
 │   ├── forca.o
+
 │   └── main.o
+
 │
-├── bin/                         # Onde o executável final é gerado                       
+
+├── bin/                         # Onde o executável final é gerado  
+
 │   └── sgtp.exe                 # Executável no Windows
+
 
 Arquivos de Dados
 
