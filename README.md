@@ -99,6 +99,7 @@ SGTP/
 │   └── sgtp.exe                 # Executável no Windows
 
 
+
 Arquivos de Dados
 
 Arquivo	Função
@@ -129,12 +130,19 @@ forca.cpp – Módulo de jogo
 Outros arquivos referentes à manipulação de fichas, exercícios e histórico
 
 Funcionalidades
+
 ✔ Cadastro e edição de exercícios
+
 ✔ Criação e gerenciamento de fichas
+
 ✔ Persistência completa em arquivos
+
 ✔ Histórico de treinos
+
 ✔ Separação modular (headers + src)
+
 ✔ Makefile funcional
+
 ✔ Interface simples em terminal
 
 Pontos Positivos
