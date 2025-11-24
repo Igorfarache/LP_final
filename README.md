@@ -98,8 +98,6 @@ SGTP/
 
 │   └── sgtp.exe                 # Executável no Windows
 
-
-
 Arquivos de Dados
 
 Arquivo	Função
