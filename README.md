@@ -58,9 +58,13 @@ SGTP/
 │   └── sgtp.exe                 # Executável no Windows
 
 Arquivos de Dados
+
 Arquivo	Função
+
 exercicios.txt	Armazena exercícios cadastrados
+
 fichas.txt	Salva fichas de treino dos usuários
+
 historico.txt	Registra treinos realizados
 
 Se estiverem vazios, o sistema preencherá conforme o uso.
