@@ -1,136 +1,115 @@
-# Código Base - Sistema de Gestão de Treinos
+SGTP – Sistema de Gestão de Treinos Pessoais
 
-Este é o código base (esqueleto) para o trabalho de implementação do Sistema de Gestão de Treinos. O código está incompleto e contém TODOs indicando onde você deve implementar a lógica.
+Sistema desenvolvido em C++ para auxiliar no gerenciamento de rotinas de treino pessoais, substituindo fichas de papel e facilitando o acompanhamento dos exercícios.
+Este projeto foi produzido como Trabalho Prático da disciplina de Programação.
 
-## O que já está implementado
+Objetivo do Sistema
 
-- Estrutura completa de classes (headers)
-- Classe base Exercicio completamente implementada
-- Menu principal e submenus (main.cpp)
-- Funções utilitárias (Utils.h)
-- Makefile configurado
+O SGTP permite ao usuário:
 
-## O que você precisa implementar
+Cadastrar exercícios
+Criar fichas de treino personalizadas
+Registrar o histórico de treinos realizados
+Editar e consultar informações de forma simples
 
-### Classes Derivadas (Cardio.cpp e Forca.cpp)
-- Construtores (novo cadastro e leitura de arquivo)
-- Método exibirDetalhes()
-- Método calcularTempoEstimado()
-- Método calcularCaloriasGastas()
-- Método getTipo()
-- Getters específicos
+Persistir dados localmente através de arquivos .txt
 
-### Classe Ficha (Ficha.cpp)
-- Inicialização da variável estática proximoId
-- Construtores
-- Destrutor (importante: não deletar exercícios!)
-- Método adicionarExercicio()
-- Método exibirFicha()
-- Métodos calcularTempoTotal() e calcularCaloriasTotais()
-- Getters
-- Método atualizarProximoId()
+ Estrutura do Projeto
+SGTP/
+│
+├── README.md                    # Documentação do projeto
+├── Makefile                     # Arquivo para compilação automatizada
+│
+├── include/                     # Headers (.h)
+│   ├── Exercicio.h
+│   ├── Cardio.h
+│   ├── Forca.h
+│   ├── Ficha.h
+│   ├── Historico.h
+│   ├── Sistema.h
+│   └── Utils.h 
+│
+├── src/                         # Implementações (.cpp)
+│   ├── Exercicio.cpp
+│   ├── Cardio.cpp
+│   ├── Forca.cpp
+│   ├── Ficha.cpp
+│   ├── Historico.cpp
+│   ├── Sistema.cpp
+│   └── main.cpp               
+│                   
+│
+├── data/                        # Persistência dos dados
+│   ├── exercicios.txt           # Lista de exercícios cadastrados
+│   ├── fichas.txt               # Lista de fichas de treino
+│   ├── historico.txt            # Registro do histórico de treinos
+│   
+│
+├── build/                       # Arquivos de compilação
+│   ├── utils.o
+│   ├── menu.o
+│   ├── exercicio.o
+│   ├── ficha.o
+│   ├── historico.o
+│   ├── forca.o
+│   └── main.o
+│
+├── bin/                         # Onde o executável final é gerado                       
+│   └── sgtp.exe                 # Executável no Windows
 
-### Classe Historico (Historico.cpp)
-- Método adicionarRegistro()
-- Método exibirHistorico()
-- Método getRegistros()
-- Método carregarDeArquivo()
-- Método salvarEmArquivo()
+Arquivos de Dados
+Arquivo	Função
+exercicios.txt	Armazena exercícios cadastrados
+fichas.txt	Salva fichas de treino dos usuários
+historico.txt	Registra treinos realizados
 
-### Classe Sistema (Sistema.cpp)
-- Destrutor (deletar ponteiros)
-- Método carregarDados() (exercícios e fichas)
-- Método salvarDados() (exercícios e fichas)
-- Método buscarExercicioPorId()
-- Método buscarFichaPorId()
-- Método cadastrarExercicio()
-- Método listarExercicios()
-- Método excluirExercicio()
-- Método criarFicha()
-- Método adicionarExercicioFicha()
-- Método listarFichas()
-- Método registrarTreino()
-- Método exibirHistorico()
+Se estiverem vazios, o sistema preencherá conforme o uso.
 
-## Compilação
-
-O código compila mesmo incompleto (com warnings esperados):
-
-```bash
-make clean
+ Compilação
+Compilar:
 make
-```
 
-Os warnings sobre parâmetros não usados são normais e desaparecerão conforme você implementa os métodos.
+Executar:
+make run
 
-## Formato dos Arquivos
+Limpar:
+make clean
 
-### exercicios.txt
-- Cardio: TIPO;ID;NOME;DURACAO;CALORIAS_POR_MIN;STATUS
-- Força: TIPO;ID;NOME;CARGA;SERIES;REPETICOES;DESCANSO;STATUS
-- TIPO: 1 = Cardio, 2 = Força
-- STATUS: 1 = Ativo, 0 = Inativo
+ Principais Módulos
+main.cpp – Fluxo principal e menus
+utils.h/– Funções auxiliares (limpar tela, validações etc.)
+forca.cpp – Módulo de jogo 
 
-### fichas.txt
-- Formato: ID_FICHA;NOME_FICHA;TOTAL_EXERCICIOS;ID_EX_1;ID_EX_2;...
+Outros arquivos referentes à manipulação de fichas, exercícios e histórico
 
-### historico.txt
-- Formato: DATA;ID_FICHA;NOME_FICHA;TEMPO_TOTAL;CALORIAS_TOTAL
+Funcionalidades
+✔ Cadastro e edição de exercícios
+✔ Criação e gerenciamento de fichas
+✔ Persistência completa em arquivos
+✔ Histórico de treinos
+✔ Separação modular (headers + src)
+✔ Makefile funcional
+✔ Interface simples em terminal
 
-## Dicas
+Pontos Positivos
 
-1. Leia os TODOs: Cada método tem comentários TODO explicando o que fazer
-2. Siga a ordem: Comece pelas classes derivadas (Cardio/Forca), depois Ficha, depois Historico, por último Sistema
-3. Teste incrementalmente: Implemente um método e teste antes de passar para o próximo
-4. Polimorfismo: Use dynamic_cast quando precisar converter Exercicio* para Cardio* ou Forca*
-5. Memory Management: Lembre-se de deletar os ponteiros no destrutor do Sistema
-6. Arquivos: Use std::ifstream para ler e std::ofstream para escrever
-7. Parsing: Use std::stringstream com getline(ss, token, ';') para separar campos
+Código organizado em módulos, facilitando manutenção.
+Uso de persistência em arquivos, permitindo salvar dados entre execuções.
+Makefile bem estruturado, automatizando a compilação em Windows/Linux.
+Boas práticas, como separação de headers e diretórios corretos.
+Interface clara, fácil de navegar via menus.
+Sistema expansível, permitindo novas funcionalidades futuramente.
+Baixa dependência externa: funciona apenas com C++ padrão.
 
-## Objetivos de Aprendizado
+Pontos Negativos / Limitações
+Arquivos .txt não possuem validação robusta, podendo ser corrompidos manualmente.
+Não possui interface gráfica, o que pode limitar a usabilidade para usuários leigos.
+Dados não são criptografados, portanto não devem armazenar informações sensíveis.
+Escalabilidade limitada, já que arquivos texto não são tão eficientes quanto bancos de dados.
+Não há sistema de login completo, dependendo da implementação final.
+Tratamento de erros ainda simples, podendo ser reforçado.
 
-- Herança e polimorfismo
-- Classes abstratas e métodos virtuais
-- Gerenciamento de memória com ponteiros
-- Manipulação de arquivos de texto
-- Estruturas de dados (vector)
-- Variáveis estáticas
+Considerações Finais
 
-## Importante
-
-- NÃO delete os exercícios no destrutor de Ficha: Eles pertencem ao Sistema
-- Use construtores de inicialização: : Exercicio(nome) para chamar a classe base
-- Atualize proximoId: Quando carregar do arquivo, atualize o contador estático
-- Validação: Verifique se ponteiros não são nullptr antes de usar
-- Formatação: Use std::fixed e std::setprecision(2) para números decimais
-
-## Estrutura do Projeto
-
-```
-codigo_base/
-├── Exercicio.h          Completo
-├── Exercicio.cpp        Completo
-├── Cardio.h             Completo
-├── Cardio.cpp           TODO
-├── Forca.h              Completo
-├── Forca.cpp            TODO
-├── Ficha.h              Completo
-├── Ficha.cpp            TODO
-├── Historico.h          Completo
-├── Historico.cpp        TODO
-├── Sistema.h            Completo
-├── Sistema.cpp           TODO
-├── main.cpp             Completo
-├── Utils.h              Completo
-└── Makefile             Completo
-```
-
-## Começando
-
-1. Leia este README completamente
-2. Compile o projeto: make
-3. Comece implementando Cardio.cpp e Forca.cpp
-4. Depois implemente Ficha.cpp
-5. Em seguida Historico.cpp
-6. Por último Sistema.cpp (mais complexo)
-7. Teste cada funcionalidade conforme implementa
+O SGTP é um sistema educacional, ideal para praticar conceitos de Programação estruturada e modular, manipulação de arquivos, divisões de módulos e automação com Makefile.
+Ele serve como base para evoluir para projetos maiores
